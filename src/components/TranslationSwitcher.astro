@@ -1,0 +1,21 @@
+---
+import { url } from '../utils/url';
+
+interface Props {
+  psalmNumber: number;
+  current: 'web' | 'kjv';
+}
+
+const { psalmNumber, current } = Astro.props;
+---
+<div class="translation-switcher">
+  <a href={url(`/psalms/${psalmNumber}`)} class:list={['pill', { 'pill--active': current === 'web' }]} data-translation="web">WEB</a>
+  <a href={url(`/psalms/kjv/${psalmNumber}`)} class:list={['pill', { 'pill--active': current === 'kjv' }]} data-translation="kjv">KJV</a>
+</div>
+<script>
+  document.querySelectorAll('.translation-switcher .pill').forEach(link => {
+    link.addEventListener('click', () => {
+      localStorage.setItem('favored-translation', link.dataset.translation);
+    });
+  });
+</script>
