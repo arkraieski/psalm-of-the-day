@@ -2,7 +2,7 @@
   --bg: #FAF7F0;
   --fg: #2c2416;
   --fg-muted: #8a7a60;
-  --fg-verse-num: #b0a080;
+  --fg-verse-num: #7a6040;
   --divider: #ddd5c0;
   --font-verse: 'EB Garamond', Georgia, serif;
   --font-ui: 'Lora', Georgia, serif;
@@ -15,7 +15,7 @@
     --bg: #1a1408;
     --fg: #f0e8d4;
     --fg-muted: #a09070;
-    --fg-verse-num: #7a6a50;
+    --fg-verse-num: #c8a87a;
     --divider: #3a3020;
   }
 }
