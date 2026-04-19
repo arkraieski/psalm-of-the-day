@@ -92,6 +92,14 @@ sup.verse-num {
   user-select: none;
 }
 
+.psalm-translation {
+  font-family: var(--font-ui);
+  font-size: 0.8em;
+  color: var(--fg-muted);
+  margin-top: 1.5rem;
+  margin-bottom: 0;
+}
+
 .psalm-list {
   list-style: none;
   padding: 0;
