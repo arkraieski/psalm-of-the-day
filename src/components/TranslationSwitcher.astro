@@ -1,21 +1,39 @@
 ---
 import { url } from '../utils/url';
 
+export type TranslationId = 'web' | 'kjv' | 'es' | 'it' | 'pl' | 'pt' | 'zh';
+
 interface Props {
   psalmNumber: number;
-  current: 'web' | 'kjv';
+  current: TranslationId;
 }
 
 const { psalmNumber, current } = Astro.props;
+
+const translations: Array<{ id: TranslationId; label: string; path: string }> = [
+  { id: 'web', label: 'World English Bible',      path: url(`/psalms/${psalmNumber}`) },
+  { id: 'kjv', label: 'King James Version',        path: url(`/psalms/kjv/${psalmNumber}`) },
+  { id: 'es',  label: 'Español — Reina Valera',    path: url(`/psalms/es/${psalmNumber}`) },
+  { id: 'it',  label: 'Italiano — Riveduta',        path: url(`/psalms/it/${psalmNumber}`) },
+  { id: 'pl',  label: 'Polski — Polska Biblia',     path: url(`/psalms/pl/${psalmNumber}`) },
+  { id: 'pt',  label: 'Português — Versão Portuguesa', path: url(`/psalms/pt/${psalmNumber}`) },
+  { id: 'zh',  label: '中文 — 中文和合本',           path: url(`/psalms/zh/${psalmNumber}`) },
+];
 ---
 <div class="translation-switcher">
-  <a href={url(`/psalms/${psalmNumber}`)} class:list={['pill', { 'pill--active': current === 'web' }]} data-translation="web">WEB</a>
-  <a href={url(`/psalms/kjv/${psalmNumber}`)} class:list={['pill', { 'pill--active': current === 'kjv' }]} data-translation="kjv">KJV</a>
+  <select class="translation-select">
+    {translations.map(t => (
+      <option value={t.path} data-id={t.id} selected={t.id === current}>
+        {t.label}
+      </option>
+    ))}
+  </select>
 </div>
 <script>
-  document.querySelectorAll('.translation-switcher .pill').forEach(link => {
-    link.addEventListener('click', () => {
-      localStorage.setItem('favored-translation', link.dataset.translation);
-    });
+  const sel = document.querySelector<HTMLSelectElement>('.translation-select');
+  sel?.addEventListener('change', () => {
+    const opt = sel.options[sel.selectedIndex] as HTMLOptionElement & { dataset: DOMStringMap };
+    localStorage.setItem('favored-translation', opt.dataset.id ?? 'web');
+    window.location.href = sel.value;
   });
 </script>

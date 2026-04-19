@@ -2,10 +2,20 @@
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
 import TranslationSwitcher from './TranslationSwitcher.astro';
+import type { TranslationId } from './TranslationSwitcher.astro';
+
+type AnyPsalmEntry =
+  | CollectionEntry<'psalms'>
+  | CollectionEntry<'psalmsKjv'>
+  | CollectionEntry<'psalmsEs'>
+  | CollectionEntry<'psalmsIt'>
+  | CollectionEntry<'psalmsPl'>
+  | CollectionEntry<'psalmsPt'>
+  | CollectionEntry<'psalmsZh'>;
 
 interface Props {
-  psalm: CollectionEntry<'psalms'> | CollectionEntry<'psalmsKjv'>;
-  translation: 'web' | 'kjv';
+  psalm: AnyPsalmEntry;
+  translation: TranslationId;
 }
 
 const { psalm, translation } = Astro.props;

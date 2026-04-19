@@ -8,6 +8,7 @@
   "scripts": {
     "build:psalms": "node scripts/build-psalms.js",
     "build:psalms-kjv": "node scripts/build-psalms-kjv.js",
+    "build:translations": "node scripts/build-translations.js",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",

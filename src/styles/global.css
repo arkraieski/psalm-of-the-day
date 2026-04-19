@@ -100,8 +100,9 @@ sup.verse-num {
 
 .psalm-title-row {
   display: flex;
-  align-items: baseline;
-  gap: 6rem;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.35rem;
   margin-bottom: 0.25rem;
 }
 
@@ -111,29 +112,28 @@ sup.verse-num {
 
 .translation-switcher {
   display: flex;
-  gap: 0.4rem;
 }
 
-.pill {
+.translation-select {
   font-family: var(--font-ui);
   font-size: 0.78em;
   color: var(--fg-muted);
+  background: var(--bg);
   border: 1px solid var(--divider);
-  border-radius: 999px;
-  padding: 0.15em 0.75em;
+  border-radius: 4px;
+  padding: 0.15em 0.4em;
   line-height: 1.8;
-  text-decoration: none;
+  cursor: pointer;
+  outline: none;
+  appearance: auto;
+  -webkit-appearance: auto;
+  max-width: 22ch;
 }
 
-.pill:hover {
-  color: var(--fg);
-  text-decoration: none;
-}
-
-.pill--active {
+.translation-select:hover,
+.translation-select:focus {
   color: var(--fg);
   border-color: var(--fg-muted);
-  font-weight: 500;
 }
 
 .psalm-list {
