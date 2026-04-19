@@ -1,0 +1,22 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import { UI } from '../../../utils/i18n';
+
+const ui = UI['es'];
+const psalms = await getCollection('psalmsEs');
+const sorted = psalms.sort((a, b) => a.data.number - b.data.number);
+---
+<BaseLayout title={`${ui.allPsalms} — ${ui.siteTitle}`} translation="es">
+  <h1>{ui.allPsalms}</h1>
+  <ol class="psalm-list">
+    {sorted.map(p => (
+      <li>
+        <a href={`${p.data.number}`}>
+          {ui.psalm} {p.data.number}
+          {p.data.title && <span class="psalm-list-title">{p.data.title}</span>}
+        </a>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>
