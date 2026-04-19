@@ -30,6 +30,14 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         if (article) {
           document.querySelector('.loading-text').replaceWith(article);
           document.title = doc.title;
+          const sel = document.querySelector('.translation-select');
+          if (sel) {
+            sel.addEventListener('change', () => {
+              const opt = sel.options[sel.selectedIndex];
+              localStorage.setItem('favored-translation', opt.dataset.id ?? 'web');
+              window.location.href = sel.value;
+            });
+          }
         } else {
           window.location.replace(psalmUrl);
         }
