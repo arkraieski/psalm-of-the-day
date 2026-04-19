@@ -1,0 +1,166 @@
+:root {
+  --bg: #FAF7F0;
+  --fg: #2c2416;
+  --fg-muted: #8a7a60;
+  --fg-verse-num: #b0a080;
+  --divider: #ddd5c0;
+  --font-verse: 'EB Garamond', Georgia, serif;
+  --font-ui: 'Lora', Georgia, serif;
+  --max-prose: 65ch;
+  --lh-verse: 1.9;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1a1408;
+    --fg: #f0e8d4;
+    --fg-muted: #a09070;
+    --fg-verse-num: #7a6a50;
+    --divider: #3a3020;
+  }
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-ui);
+  font-size: clamp(1rem, 1.8vw, 1.15rem);
+  line-height: var(--lh-verse);
+  margin: 0;
+  padding: 1.5rem 1rem;
+}
+
+main {
+  max-width: var(--max-prose);
+  margin-inline: auto;
+  padding-block: 2rem;
+}
+
+a {
+  color: var(--fg-muted);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--fg);
+  text-decoration: underline;
+}
+
+h1 {
+  font-family: var(--font-ui);
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 0.25rem;
+  letter-spacing: 0.02em;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid var(--divider);
+  margin-block: 2rem;
+}
+
+.psalm-superscription {
+  font-family: var(--font-ui);
+  font-style: italic;
+  font-size: 0.88em;
+  color: var(--fg-muted);
+  margin-top: 0;
+  margin-bottom: 1.75rem;
+}
+
+.psalm-body {
+  font-family: var(--font-verse);
+  line-height: var(--lh-verse);
+}
+
+.psalm-body p {
+  margin: 0 0 0.75em;
+}
+
+sup.verse-num {
+  font-family: var(--font-ui);
+  font-size: 0.58em;
+  color: var(--fg-verse-num);
+  vertical-align: super;
+  line-height: 0;
+  margin-right: 0.2em;
+  user-select: none;
+}
+
+.psalm-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.psalm-list li {
+  border-bottom: 1px solid var(--divider);
+  padding-block: 0.5rem;
+}
+
+.psalm-list li:first-child {
+  border-top: 1px solid var(--divider);
+}
+
+.psalm-list a {
+  color: var(--fg);
+  display: block;
+}
+
+.psalm-list a:hover {
+  color: var(--fg-muted);
+  text-decoration: none;
+}
+
+.psalm-list-title {
+  color: var(--fg-muted);
+  font-size: 0.85em;
+  margin-left: 0.4em;
+}
+
+.psalm-nav {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  margin-top: 3rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--divider);
+  font-family: var(--font-ui);
+  font-size: 0.88em;
+  flex-wrap: wrap;
+}
+
+.psalm-nav a {
+  color: var(--fg-muted);
+}
+
+.psalm-nav a:hover {
+  color: var(--fg);
+}
+
+.site-header {
+  border-bottom: 1px solid var(--divider);
+  padding-bottom: 1rem;
+  margin-bottom: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.site-header a {
+  color: var(--fg);
+  font-size: 0.9em;
+}
+
+.loading-text {
+  color: var(--fg-muted);
+  font-style: italic;
+  font-family: var(--font-ui);
+}

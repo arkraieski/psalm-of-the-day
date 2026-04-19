@@ -1,0 +1,21 @@
+{
+  "name": "psalm-of-the-day",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "build:psalms": "node scripts/build-psalms.js",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "astro": "^6.1.8"
+  },
+  "devDependencies": {
+    "world-english-bible": "^1.0.1"
+  }
+}

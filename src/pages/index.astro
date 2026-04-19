@@ -1,0 +1,16 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+<BaseLayout title="Psalm of the Day">
+  <p class="loading-text">Loading today's Psalm…</p>
+  <script define:vars={{ base: import.meta.env.BASE_URL }}>
+    const now = new Date();
+    const start = new Date(now.getFullYear(), 0, 1);
+    const dayOfYear = Math.ceil((now - start) / 86400000) + 1;
+    const n = ((dayOfYear - 1) % 150) + 1;
+    window.location.replace(base.replace(/\/$/, '') + '/psalms/' + n);
+  </script>
+  <noscript>
+    <p>Enable JavaScript to see today's Psalm, or <a href="psalms/">browse all 150 Psalms</a>.</p>
+  </noscript>
+</BaseLayout>

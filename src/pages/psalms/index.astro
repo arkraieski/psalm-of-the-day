@@ -1,0 +1,20 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+
+const psalms = await getCollection('psalms');
+const sorted = psalms.sort((a, b) => a.data.number - b.data.number);
+---
+<BaseLayout title="All Psalms — Psalm of the Day">
+  <h1>All 150 Psalms</h1>
+  <ol class="psalm-list">
+    {sorted.map(p => (
+      <li>
+        <a href={`${p.data.number}`}>
+          Psalm {p.data.number}
+          {p.data.title && <span class="psalm-list-title">{p.data.title}</span>}
+        </a>
+      </li>
+    ))}
+  </ol>
+</BaseLayout>

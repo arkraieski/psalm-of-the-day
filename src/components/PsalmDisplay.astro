@@ -1,0 +1,20 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { render } from 'astro:content';
+
+interface Props {
+  psalm: CollectionEntry<'psalms'>;
+}
+
+const { psalm } = Astro.props;
+const { Content } = await render(psalm);
+---
+<article>
+  <h1>Psalm {psalm.data.number}</h1>
+  {psalm.data.title && (
+    <p class="psalm-superscription">{psalm.data.title}</p>
+  )}
+  <div class="psalm-body">
+    <Content />
+  </div>
+</article>
