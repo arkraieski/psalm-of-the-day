@@ -95,7 +95,7 @@ sup.verse-num {
 .psalm-title-row {
   display: flex;
   align-items: baseline;
-  gap: 1rem;
+  gap: 6rem;
   margin-bottom: 0.25rem;
 }
 
