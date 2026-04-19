@@ -34,6 +34,12 @@ body {
   padding: 1.5rem 1rem;
 }
 
+@media (max-width: 640px) {
+  body {
+    font-size: 1.125rem;
+  }
+}
+
 main {
   max-width: var(--max-prose);
   margin-inline: auto;
