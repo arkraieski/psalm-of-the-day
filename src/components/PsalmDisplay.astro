@@ -2,7 +2,8 @@
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
 import TranslationSwitcher from './TranslationSwitcher.astro';
-import type { TranslationId } from './TranslationSwitcher.astro';
+import type { TranslationId } from '../utils/i18n';
+import { UI } from '../utils/i18n';
 
 type AnyPsalmEntry =
   | CollectionEntry<'psalms'>
@@ -23,7 +24,7 @@ const { Content } = await render(psalm);
 ---
 <article>
   <div class="psalm-title-row">
-    <h1>Psalm {psalm.data.number}</h1>
+    <h1>{UI[translation].psalm} {psalm.data.number}</h1>
     <TranslationSwitcher psalmNumber={psalm.data.number} current={translation} />
   </div>
   {psalm.data.title && (

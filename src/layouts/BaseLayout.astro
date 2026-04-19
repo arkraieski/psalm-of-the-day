@@ -1,16 +1,20 @@
 ---
 import '../styles/global.css';
 import { url } from '../utils/url';
+import { LANG_CODE, UI } from '../utils/i18n';
+import type { TranslationId } from '../utils/i18n';
 
 interface Props {
   title: string;
   description?: string;
+  translation?: TranslationId;
 }
 
-const { title, description = 'A different Psalm each day from the World English Bible.' } = Astro.props;
+const { title, description = 'A different Psalm each day from the World English Bible.', translation = 'web' } = Astro.props;
+const ui = UI[translation];
 ---
 <!doctype html>
-<html lang="en">
+<html lang={LANG_CODE[translation]}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -26,8 +30,8 @@ const { title, description = 'A different Psalm each day from the World English 
   <body>
     <main>
       <header class="site-header">
-        <a href={url('/')}>Psalm of the Day</a>
-        <a href={url('/psalms')}>All Psalms</a>
+        <a href={url('/')}>{ui.siteTitle}</a>
+        <a href={url('/psalms')}>{ui.allPsalms}</a>
       </header>
       <slot />
     </main>

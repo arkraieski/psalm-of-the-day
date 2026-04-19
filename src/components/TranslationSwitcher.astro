@@ -1,7 +1,7 @@
 ---
 import { url } from '../utils/url';
-
-export type TranslationId = 'web' | 'kjv' | 'es' | 'it' | 'pl' | 'pt' | 'zh';
+import { UI } from '../utils/i18n';
+export type { TranslationId } from '../utils/i18n';
 
 interface Props {
   psalmNumber: number;
@@ -21,7 +21,7 @@ const translations: Array<{ id: TranslationId; label: string; path: string }> = 
 ];
 ---
 <div class="translation-switcher">
-  <select class="translation-select">
+  <select class="translation-select" aria-label={UI[current].translation}>
     {translations.map(t => (
       <option value={t.path} data-id={t.id} selected={t.id === current}>
         {t.label}

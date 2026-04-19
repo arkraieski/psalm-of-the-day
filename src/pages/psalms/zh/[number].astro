@@ -3,6 +3,8 @@ import { getCollection, getEntry } from 'astro:content';
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import PsalmDisplay from '../../../components/PsalmDisplay.astro';
 import { url } from '../../../utils/url';
+import { UI } from '../../../utils/i18n';
+const ui = UI['zh'];
 
 export async function getStaticPaths() {
   const psalms = await getCollection('psalmsZh');
@@ -20,11 +22,12 @@ const n = psalm.data.number;
 <BaseLayout
   title={`Psalm ${n} (中文和合本) — Psalm of the Day`}
   description={`Psalm ${n} in Chinese, 中文和合本.`}
+  translation="zh"
 >
   <PsalmDisplay psalm={psalm} translation="zh" />
   <nav class="psalm-nav">
-    {n > 1 && <a href={url(`/psalms/zh/${n - 1}`)}>← Psalm {n - 1}</a>}
-    <a href={url('/psalms')}>All Psalms</a>
-    {n < 150 && <a href={url(`/psalms/zh/${n + 1}`)}>Psalm {n + 1} →</a>}
+    {n > 1 && <a href={url(`/psalms/zh/${n - 1}`)}>← {ui.psalm} {n - 1}</a>}
+    <a href={url('/psalms')}>{ui.allPsalms}</a>
+    {n < 150 && <a href={url(`/psalms/zh/${n + 1}`)}>{ui.psalm} {n + 1} →</a>}
   </nav>
 </BaseLayout>
