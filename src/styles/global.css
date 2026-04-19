@@ -92,10 +92,20 @@ sup.verse-num {
   user-select: none;
 }
 
+.psalm-title-row {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.psalm-title-row h1 {
+  margin-bottom: 0;
+}
+
 .translation-switcher {
   display: flex;
   gap: 0.4rem;
-  margin-bottom: 1.75rem;
 }
 
 .pill {

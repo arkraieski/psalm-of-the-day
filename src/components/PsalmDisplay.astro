@@ -12,11 +12,13 @@ const { psalm, translation } = Astro.props;
 const { Content } = await render(psalm);
 ---
 <article>
-  <h1>Psalm {psalm.data.number}</h1>
+  <div class="psalm-title-row">
+    <h1>Psalm {psalm.data.number}</h1>
+    <TranslationSwitcher psalmNumber={psalm.data.number} current={translation} />
+  </div>
   {psalm.data.title && (
     <p class="psalm-superscription">{psalm.data.title}</p>
   )}
-  <TranslationSwitcher psalmNumber={psalm.data.number} current={translation} />
   <div class="psalm-body">
     <Content />
   </div>
