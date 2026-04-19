@@ -1,12 +1,14 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { render } from 'astro:content';
+import TranslationSwitcher from './TranslationSwitcher.astro';
 
 interface Props {
-  psalm: CollectionEntry<'psalms'>;
+  psalm: CollectionEntry<'psalms'> | CollectionEntry<'psalmsKjv'>;
+  translation: 'web' | 'kjv';
 }
 
-const { psalm } = Astro.props;
+const { psalm, translation } = Astro.props;
 const { Content } = await render(psalm);
 ---
 <article>
@@ -14,8 +16,8 @@ const { Content } = await render(psalm);
   {psalm.data.title && (
     <p class="psalm-superscription">{psalm.data.title}</p>
   )}
+  <TranslationSwitcher psalmNumber={psalm.data.number} current={translation} />
   <div class="psalm-body">
     <Content />
   </div>
-  <p class="psalm-translation">World English Bible</p>
 </article>

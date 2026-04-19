@@ -8,7 +8,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
     const start = new Date(now.getFullYear(), 0, 1);
     const dayOfYear = Math.ceil((now - start) / 86400000) + 1;
     const n = ((dayOfYear - 1) % 150) + 1;
-    const psalmUrl = base.replace(/\/$/, '') + '/psalms/' + n;
+    const translation = localStorage.getItem('favored-translation') === 'kjv' ? 'kjv' : 'web';
+    const psalmPath = translation === 'kjv' ? `/psalms/kjv/${n}` : `/psalms/${n}`;
+    const psalmUrl = base.replace(/\/$/, '') + psalmPath;
 
     fetch(psalmUrl)
       .then(r => r.text())

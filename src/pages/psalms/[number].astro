@@ -21,7 +21,7 @@ const n = psalm.data.number;
   title={`Psalm ${n} — Psalm of the Day`}
   description={psalm.data.title ?? `Psalm ${n} from the World English Bible.`}
 >
-  <PsalmDisplay psalm={psalm} />
+  <PsalmDisplay psalm={psalm} translation="web" />
   <nav class="psalm-nav">
     {n > 1 && <a href={url(`/psalms/${n - 1}`)}>← Psalm {n - 1}</a>}
     <a href={url('/psalms')}>All Psalms</a>

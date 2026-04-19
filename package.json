@@ -7,6 +7,7 @@
   },
   "scripts": {
     "build:psalms": "node scripts/build-psalms.js",
+    "build:psalms-kjv": "node scripts/build-psalms-kjv.js",
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
@@ -16,6 +17,7 @@
     "astro": "^6.1.8"
   },
   "devDependencies": {
+    "kjv": "^1.0.0",
     "world-english-bible": "^1.0.1"
   }
 }
