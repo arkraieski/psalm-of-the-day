@@ -100,9 +100,8 @@ sup.verse-num {
 
 .psalm-title-row {
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 0.35rem;
+  align-items: baseline;
+  gap: 6rem;
   margin-bottom: 0.25rem;
 }
 
@@ -116,7 +115,7 @@ sup.verse-num {
 
 .translation-select {
   font-family: var(--font-ui);
-  font-size: 0.78em;
+  font-size: 0.72em;
   color: var(--fg-muted);
   background: var(--bg);
   border: 1px solid var(--divider);
