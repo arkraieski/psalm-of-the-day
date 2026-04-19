@@ -1,5 +1,10 @@
 export type TranslationId = 'web' | 'kjv' | 'es' | 'it' | 'pl' | 'pt' | 'zh';
 
+export const ALL_PSALMS_PATH: Record<TranslationId, string> = {
+  web: '/psalms', kjv: '/psalms',
+  es: '/psalms/es', it: '/psalms/it', pl: '/psalms/pl', pt: '/psalms/pt', zh: '/psalms/zh',
+};
+
 export const LANG_CODE: Record<TranslationId, string> = {
   web: 'en', kjv: 'en', es: 'es', it: 'it', pl: 'pl', pt: 'pt', zh: 'zh-Hans',
 };

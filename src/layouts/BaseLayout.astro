@@ -1,7 +1,7 @@
 ---
 import '../styles/global.css';
 import { url } from '../utils/url';
-import { LANG_CODE, UI } from '../utils/i18n';
+import { LANG_CODE, UI, ALL_PSALMS_PATH } from '../utils/i18n';
 import type { TranslationId } from '../utils/i18n';
 
 interface Props {
@@ -31,7 +31,7 @@ const ui = UI[translation];
     <main>
       <header class="site-header">
         <a href={url('/')}>{ui.siteTitle}</a>
-        <a href={url('/psalms')}>{ui.allPsalms}</a>
+        <a href={url(ALL_PSALMS_PATH[translation])}>{ui.allPsalms}</a>
       </header>
       <slot />
     </main>
