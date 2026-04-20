@@ -38,9 +38,4 @@ const psalmsPt = defineCollection({
   schema: psalmSchema,
 });
 
-const psalmsZh = defineCollection({
-  loader: glob({ pattern: '*.md', base: './src/content/psalms-zh' }),
-  schema: psalmSchema,
-});
-
-export const collections = { psalms, psalmsKjv, psalmsEs, psalmsIt, psalmsPl, psalmsPt, psalmsZh };
+export const collections = { psalms, psalmsKjv, psalmsEs, psalmsIt, psalmsPl, psalmsPt };

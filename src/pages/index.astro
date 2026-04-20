@@ -17,7 +17,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
       it:  `/psalms/it/${n}`,
       pl:  `/psalms/pl/${n}`,
       pt:  `/psalms/pt/${n}`,
-      zh:  `/psalms/zh/${n}`,
     };
     const psalmPath = pathMap[translation] ?? `/psalms/${n}`;
     const psalmUrl = base.replace(/\/$/, '') + psalmPath;
