@@ -1,3 +1,10 @@
+@import '@fontsource/eb-garamond/400.css';
+@import '@fontsource/eb-garamond/400-italic.css';
+@import '@fontsource/eb-garamond/500.css';
+@import '@fontsource/lora/400.css';
+@import '@fontsource/lora/400-italic.css';
+@import '@fontsource/lora/500.css';
+
 :root {
   --bg: #FAF7F0;
   --fg: #2c2416;
@@ -116,7 +123,7 @@ sup.verse-num {
 .translation-select {
   font-family: var(--font-ui);
   font-size: 0.72em;
-  color: var(--fg-muted);
+  color: var(--fg);
   background: var(--bg);
   border: 1px solid var(--divider);
   border-radius: 4px;
