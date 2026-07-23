@@ -10,7 +10,7 @@ interface Props {
   translation?: TranslationId;
 }
 
-const { title, description = 'A different Psalm each day from the World English Bible.', translation = 'web' } = Astro.props;
+const { title, description = 'A different Psalm each day from the Bible. Pick from a variety of translations/languages', translation = 'web' } = Astro.props;
 const ui = UI[translation];
 ---
 <!doctype html>
