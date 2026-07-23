@@ -29,10 +29,6 @@ const translations: Array<{ id: TranslationId; label: string; path: string }> = 
   </select>
 </div>
 <script>
-  const sel = document.querySelector<HTMLSelectElement>('.translation-select');
-  sel?.addEventListener('change', () => {
-    const opt = sel.options[sel.selectedIndex] as HTMLOptionElement & { dataset: DOMStringMap };
-    localStorage.setItem('favored-translation', opt.dataset.id ?? 'web');
-    window.location.href = sel.value;
-  });
+  import { setupTranslationSwitcher } from '../scripts/translationSwitcher';
+  setupTranslationSwitcher();
 </script>

@@ -142,6 +142,52 @@ sup.verse-num {
   border-color: var(--fg-muted);
 }
 
+/* Pinned state: applied once the switcher's row scrolls out of view. */
+.translation-switcher.is-floating {
+  position: fixed;
+  z-index: 50;
+  animation: switcher-appear 0.18s ease-out;
+}
+
+/* Desktop: float into the right gutter beside the centered column. */
+@media (min-width: 1080px) {
+  .translation-switcher.is-floating {
+    top: 2rem;
+    left: calc(50% + var(--max-prose) / 2 + 1.5rem);
+    max-width: calc(50vw - var(--max-prose) / 2 - 2.5rem);
+  }
+}
+
+/* Mobile / narrow: become a sticky bar pinned to the top of the page. */
+@media (max-width: 1079.98px) {
+  .translation-switcher.is-floating {
+    top: 0;
+    left: 0;
+    right: 0;
+    justify-content: center;
+    padding: 0.6rem 1rem;
+    background: var(--bg);
+    border-bottom: 1px solid var(--divider);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  }
+
+  .translation-switcher.is-floating .translation-select {
+    max-width: 32ch;
+    width: 100%;
+  }
+}
+
+@keyframes switcher-appear {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .translation-switcher.is-floating {
+    animation: none;
+  }
+}
+
 .psalm-list {
   list-style: none;
   padding: 0;

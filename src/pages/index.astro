@@ -29,19 +29,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
         if (article) {
           document.querySelector('.loading-text').replaceWith(article);
           document.title = doc.title;
-          const sel = document.querySelector('.translation-select');
-          if (sel) {
-            sel.addEventListener('change', () => {
-              const opt = sel.options[sel.selectedIndex];
-              localStorage.setItem('favored-translation', opt.dataset.id ?? 'web');
-              window.location.href = sel.value;
-            });
-          }
+          window.__psalmLoaded = true;
+          document.dispatchEvent(new CustomEvent('psalm-loaded'));
         } else {
           window.location.replace(psalmUrl);
         }
       })
       .catch(() => window.location.replace(psalmUrl));
+  </script>
+  <script>
+    import { setupTranslationSwitcher } from '../scripts/translationSwitcher';
+    // The article is injected asynchronously above. This module may load either
+    // before or after that happens, so handle both orderings rather than relying
+    // on catching the one-shot event in time.
+    if (window.__psalmLoaded) setupTranslationSwitcher();
+    else document.addEventListener('psalm-loaded', () => setupTranslationSwitcher(), { once: true });
   </script>
   <noscript>
     <p>Enable JavaScript to see today's Psalm, or <a href="psalms/">browse all 150 Psalms</a>.</p>
